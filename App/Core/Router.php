@@ -7,7 +7,19 @@ class Router{
 
         switch($url){
             case'':
-            
+            case 'login':
+                require_once '../Public/login.php';
+                break;
+            case 'dashboard':
+                require_once '../Public/dashboard.php';
+                break;
+            case 'logout':
+                require_once '../Public/logout.php';
+                break;
+            case 'register':
+                require_once '../Public/register.php';
+            default:
+                echo '404 - page not found';
         }
     }
 }
