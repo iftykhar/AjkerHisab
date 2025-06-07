@@ -7,6 +7,14 @@ if(!Session::checkAuth()){
    header('Location:/login');
    exit;
 }
-
-echo "Welcome, ". Session::get('user');
-echo "<br><a href='/logout'>Logout</a>"
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <p>Welcome, <?php echo htmlspecialchars(Session::get('user')); ?></p>
+    <a href='/logout'>Logout</a>
+</body>
+</html>
