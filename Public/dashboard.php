@@ -1,10 +1,11 @@
 <?php 
 use App\Core\Session;
 require_once '../App/Core/Session.php';
+require_once '../App/config.php';
 Session::start();
 
 if(!Session::checkAuth()){
-   header('Location:/login');
+   header("Location:".BASE_URL."/login");
    exit;
 }
 ?>

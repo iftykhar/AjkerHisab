@@ -18,6 +18,7 @@ class Router{
                 break;
             case 'register':
                 require_once '../Public/register.php';
+                break;
             default:
                 echo '404 - page not found';
         }

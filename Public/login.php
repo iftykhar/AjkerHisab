@@ -1,4 +1,6 @@
 <?php 
+require_once '../App/config.php';
+
 use App\Core\Session;
 Session::start();
 
@@ -9,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     //testing purpose
     if($email === 'admin@mail.com' && $pass === '123456'){
         Session::set('user',$email);
-        header('location:/dashboard');
+        header("location:".BASE_URL."/dashboard");
         exit;
     }else{
         echo "Invalid Login";
