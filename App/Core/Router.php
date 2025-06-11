@@ -1,6 +1,8 @@
 <?php
 namespace App\Core;
 
+use App\Controllers\AuthController;
+
 class Router{
 
     public function route($url){
@@ -8,7 +10,7 @@ class Router{
         switch($url){
             case'':
             case 'login':
-                require_once '../Public/login.php';
+                (new AuthController)->login();
                 break;
             case 'dashboard':
                 require_once '../Public/dashboard.php';

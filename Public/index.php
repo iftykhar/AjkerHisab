@@ -8,7 +8,8 @@ use App\Core\Session;
 Session::start();
 
 
-$url = $_GET['url'] ?? '';
+$url = $_GET['url'] ?? 'login';
+
 $router = new Router();
 $router->route($url);
 
