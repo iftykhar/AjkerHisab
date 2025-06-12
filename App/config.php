@@ -1,2 +1,4 @@
 <?php 
-define('BASE_URL', '/AjkerHisab/Public');
+namespace App;
+
+define('BASE_URL', '/AjkerHisab');
