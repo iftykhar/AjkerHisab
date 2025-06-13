@@ -7,22 +7,30 @@ class Router{
 
     public function route($url){
 
+        $auth = new AuthController();
+
         switch($url){
             case'':
             case 'login':
-                (new AuthController)->login();
+                $auth->login();
                 break;
-            case 'dashboard':
-                require_once '../Public/dashboard.php';
-                break;
+            // case 'dashboard':
+            //     $auth->register();
+            //     break;
             case 'logout':
-                require_once '../Public/logout.php';
+                $auth->logout();
                 break;
             case 'register':
-                require_once '../Public/register.php';
+                if($_SERVER['REQUEST_METHOD'] === 'POST'){
+                    $auth->register();
+                }else{
+                    $auth->showRegisterForm();
+                }
                 break;
             default:
+                http_response_code(404);
                 echo '404 - page not found';
+                break;
         }
     }
 }

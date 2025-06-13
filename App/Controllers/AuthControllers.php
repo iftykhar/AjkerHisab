@@ -36,7 +36,9 @@ class AuthController{
 
 
     public function showRegisterForm(){
-        require_once '../Views/register.php';
+        // require_once__DIR__. '../Views/register.php';
+        require_once __DIR__ . '/../Views/register.php';
+
     }
 
     public function register(){

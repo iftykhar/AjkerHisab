@@ -3,7 +3,15 @@ namespace App\Models;
 
 class User{
 
-    private $file = '../Storage/users.json';
+
+    private $file;
+
+    public function __construct(){
+        $this->file = __DIR__ . '/../../../Storage/users.json';
+        if(!file_exists($this->file)){
+            file_put_contents($this->file, json_encode([]));
+        }
+    }
 
     public function getUsers(): array
     {
@@ -20,10 +28,10 @@ class User{
     }
 
     public function saveAllUsers($users){
-        file_put_contents($this->file, json_encode($user, JSON_PRETTY_PRINT));
+        file_put_contents($this->file, json_encode($users, JSON_PRETTY_PRINT));
     }
 
-    public function register($name,$email,$passowrd){
+    public function register($name,$email,$password){
         $users = $this->getAllUsers();
 
         if(isset($users[$email])){
@@ -37,7 +45,7 @@ class User{
         ];
 
         $this->saveAllUsers($users);
-        returnp['success' => true];
+        return ['success' => true];
     }
 
     public function login($email, $password){
