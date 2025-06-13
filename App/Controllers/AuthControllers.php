@@ -4,6 +4,9 @@ namespace App\Controllers;
 use App\Models\User;
 use App\config;
 
+// require_once __DIR__ . '/../../../config.php';
+
+
 class AuthController{
 
 
@@ -18,7 +21,7 @@ class AuthController{
 
         if(empty($email) || empty($password)){
             $error = "please fill in Email and Password.";
-            require '../Views/login.php';
+            require_once __DIR__ . '/../Views/login.php';
             return;
         }
 
@@ -26,17 +29,18 @@ class AuthController{
         $result = $user->login($email,$password);
 
         if($result['success']){
-            $_SESSION['user'] == $email;
-            header("Location:".BASE_URL."/public/dashboard");
+            $_SESSION['user'] =  $email;
+            header("Location: index.php?route=dashboard");
+            exit();
         } else {
             $error = $result['error'];
-            require '../Views/login.php';
+            require_once __DIR__ . '/../Views/login.php';
+            return;
         }
     }
 
 
     public function showRegisterForm(){
-        // require_once__DIR__. '../Views/register.php';
         require_once __DIR__ . '/../Views/register.php';
 
     }
@@ -59,7 +63,7 @@ class AuthController{
 
         if($result['success']){
             $_SESSION['user'] = $email;
-            header("Location:".BASE_URL."/public/dashboard");
+            header("Location:index.php?route=dashboard");
         }else {
             $error = $result['error'];
             require '../Views/register.php';
@@ -68,6 +72,6 @@ class AuthController{
 
     public function logout(){
         session_destroy();
-        header("Locaiton:".BASE_URL."/public/login");
+        header("Locaiton:index.php?route=login");
     }
 }

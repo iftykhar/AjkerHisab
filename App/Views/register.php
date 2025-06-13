@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 <h2>Registration</h2>
 
-<form method="POST" action="">
+<form method="POST" action="index.php?route=register">
     <input type="text" name="name" placeholder="Your Name" required><br>
     <input type="email" name="email" placeholder="Email Address" required><br>
     <input type="password" name="password" placeholder="Password" required><br>

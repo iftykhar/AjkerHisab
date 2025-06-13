@@ -14,9 +14,10 @@ class Router{
             case 'login':
                 $auth->login();
                 break;
-            // case 'dashboard':
-            //     $auth->register();
-            //     break;
+            case 'dashboard':
+                // $auth->register();
+                echo "Dashboard page";
+                break;
             case 'logout':
                 $auth->logout();
                 break;

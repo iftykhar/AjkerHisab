@@ -6,12 +6,27 @@ class User{
 
     private $file;
 
+    // public function __construct(){
+    //     $this->file = __DIR__ . '/../../../Storage/users.json';
+    //     if(!file_exists($this->file)){
+    //         file_put_contents($this->file, json_encode([]));
+    //     }
+    // }
+
     public function __construct(){
-        $this->file = __DIR__ . '/../../../Storage/users.json';
-        if(!file_exists($this->file)){
-            file_put_contents($this->file, json_encode([]));
-        }
+    $this->file = __DIR__ . '/../../../Storage/users.json';
+
+    $dir = dirname($this->file);
+
+    if (!is_dir($dir)) {
+        mkdir($dir, 0777, true); // create directory if it doesn't exist
     }
+
+    if (!file_exists($this->file)) {
+        file_put_contents($this->file, json_encode([]));
+    }
+}
+
 
     public function getUsers(): array
     {
