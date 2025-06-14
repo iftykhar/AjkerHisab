@@ -58,6 +58,7 @@ class User{
             'email' => $email,
             'password' => password_hash($password, PASSWORD_DEFAULT)
         ];
+        // var_dump($users);
 
         $this->saveAllUsers($users);
         return ['success' => true];

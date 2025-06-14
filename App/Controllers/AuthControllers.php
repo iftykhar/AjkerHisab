@@ -2,76 +2,72 @@
 namespace App\Controllers;
 
 use App\Models\User;
-use App\config;
 
-// require_once __DIR__ . '/../../../config.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
+class AuthController {
 
-class AuthController{
-
-
-    public function showLoginForm(){
-        require_once '../Views/login.php';
+    public function showLoginForm() {
+        require_once __DIR__ . '/../Views/login.php';
     }
 
-    public function login(){
-        
+    public function login() {
         $email = $_POST['email'] ?? '';
         $password = $_POST['password'] ?? '';
 
-        if(empty($email) || empty($password)){
-            $error = "please fill in Email and Password.";
+        if (empty($email) || empty($password)) {
+            $error = "Please fill in Email and Password.";
             require_once __DIR__ . '/../Views/login.php';
             return;
         }
 
         $user = new User();
-        $result = $user->login($email,$password);
+        $result = $user->login($email, $password);
 
-        if($result['success']){
-            $_SESSION['user'] =  $email;
+        if (isset($result['success']) && $result['success']) {
+            $_SESSION['user'] = $email;
             header("Location: index.php?route=dashboard");
-            exit();
+            exit;
         } else {
-            $error = $result['error'];
+            $error = $result['error'] ?? 'Login failed';
             require_once __DIR__ . '/../Views/login.php';
-            return;
         }
     }
 
-
-    public function showRegisterForm(){
+    public function showRegisterForm() {
         require_once __DIR__ . '/../Views/register.php';
-
     }
 
-    public function register(){
-
+    public function register() {
         $name = $_POST['name'] ?? '';
         $email = $_POST['email'] ?? '';
         $password = $_POST['password'] ?? '';
         $confirm = $_POST['confirm_password'] ?? '';
 
-        if($password !== $confirm){
-            $error = "passwords do not match";
-            require '../Views/register.php';
-            return ;
+        if ($password !== $confirm) {
+            $error = "Passwords do not match";
+            require_once __DIR__ . '/../Views/register.php';
+            return;
         }
 
         $user = new User();
-        $result = $user->register($name,$email,$password);
+        $result = $user->register($name, $email, $password);
 
-        if($result['success']){
+        if (isset($result['success']) && $result['success']) {
             $_SESSION['user'] = $email;
-            header("Location:index.php?route=dashboard");
-        }else {
-            $error = $result['error'];
-            require '../Views/register.php';
+            header("Location: index.php?route=dashboard");
+            exit;
+        } else {
+            $error = $result['error'] ?? 'Registration failed';
+            require_once __DIR__ . '/../Views/register.php';
         }
     }
 
-    public function logout(){
+    public function logout() {
         session_destroy();
-        header("Locaiton:index.php?route=login");
+        header("Location: index.php?route=login");
+        exit;
     }
 }

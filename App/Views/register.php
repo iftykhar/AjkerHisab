@@ -1,72 +1,33 @@
-<?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-require_once '../App/config.php';
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
 
-$usersFile = '../Storage/users.json';
-$errors = [];
+    <h2>Register</h2>
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $name = trim($_POST['name'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $password = trim($_POST['password'] ?? '');
-    $confirm = trim($_POST['confirm_password'] ?? '');
+    <?php if (isset($error)) : ?>
+        <p style="color:red;"><?php echo $error; ?></p>
+    <?php endif; ?>
 
+    <form method="POST" action="?route=register">
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
 
-    if(empty($name) || empty($email) || empty($password) || empty($confirm)){
-        $errors[] = "All fields are required";
-    } elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        $errors[] = "Invalid email format.";
-    }elseif($password !== $confirm){
-        $error[] = "passwords don't match";
-    }
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
 
-    $users = [];
-    if(file_exists($usersFile)){
-        $json = file_get_contents($usersFile);
-        $users = json_decode($json, true) ?? [];
-    }
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br><br>
 
-    foreach($users as $user){
-        if($user['email'] === $email){
-            $errors[] = "User already exists with this email";
-            break;
-        }
-    }
+        <label>Confirm Password:</label><br>
+        <input type="password" name="confirm_password" required><br><br>
 
-    if(empty($errors)){
-        $users[] = [
-            'name' => $name,
-            'email' => $email,
-            'password' => password_hash($password,PASSWORD_DEFAULT),
-        ];
+        <button type="submit">Register</button>
+    </form>
+        
+    <p>Already have an account? <a href="index.php?route=login">Login here</a>.</p>
 
-    file_put_contents($usersFile, json_encode($users, JSON_PRETTY_PRINT));
-    $_SESSION['success'] = "Registration Successful! You can now log in.";
-    header("Location: ".BASE_URL."/login");
-    exit;
-    }
-
-}
-?>
-
-<h2>Registration</h2>
-
-<form method="POST" action="index.php?route=register">
-    <input type="text" name="name" placeholder="Your Name" required><br>
-    <input type="email" name="email" placeholder="Email Address" required><br>
-    <input type="password" name="password" placeholder="Password" required><br>
-    <input type="password" name="confirm_password" placeholder="confirm_Password" required><br>
-    <button type="submit">Register</button>
-</form>
-
-<?php if(!empty($errors)): ?>
-
-    <ul style="color:red;">
-        <?php foreach($errors as $error): ?>
-        <li><?= htmlspecialchars($error) ?> </li>
-        <?php endforeach ?>
-    </ul>
-
-<?php endif ?>
+</body>
+</html>
