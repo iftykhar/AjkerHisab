@@ -8,5 +8,15 @@
         "name": "money",
         "email": "money@mail.com",
         "password": "$2y$10$7qLaG2bJ5xN8OS4GtQOUlenR7M.GZ3INQ6Etn6HQY0YIty1\/lLi2a"
+    },
+    "admin@mail.com": {
+        "name": "admin",
+        "email": "admin@mail.com",
+        "password": "$2y$10$oRFy7EmCybg4gsacNd2GN.qVy4ore3Db3kw1sp25FP.5QJDy1dJbW"
+    },
+    "jadu@mail.com": {
+        "name": "jadu",
+        "email": "jadu@mail.com",
+        "password": "$2y$10$PKjqMaMfS6sqwiHkB9U8SOFn88r7.PhdWeHxC.QFCceNPXf3pQwRi"
     }
 }

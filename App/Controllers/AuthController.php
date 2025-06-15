@@ -28,6 +28,8 @@ class AuthController {
         $userModel = new User();
         $result = $userModel->register($name, $email, $password);
 
+        // var_dump($result);
+
         if (isset($result['success'])) {
             $_SESSION['user'] = $email;
             header('Location: index.php?route=dashboard');

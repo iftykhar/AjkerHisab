@@ -26,7 +26,8 @@ class Router {
                 $auth->logout();
                 break;
             case 'dashboard':
-                echo "Dashboard here";
+                // echo "Dashboard here";
+                require_once __DIR__ . '/../Views/dashboard.php';
                 break;
     
             default:
