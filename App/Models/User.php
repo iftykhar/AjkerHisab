@@ -11,36 +11,42 @@ class User {
         }
     }
 
-    public function getAll() {
+    public function getAllUsers() {
         return json_decode(file_get_contents($this->file), true) ?? [];
     }
 
-    public function saveAll($users) {
+    public function saveAllUsers($users) {
         file_put_contents($this->file, json_encode($users, JSON_PRETTY_PRINT));
     }
 
     public function register($name, $email, $password) {
-        $users = $this->getAll();
+        $users = $this->getAllUsers();
+
         if (isset($users[$email])) {
-            return ['error' => 'Email already registered.'];
+            return ['error' => 'Email already registered'];
         }
+
         $users[$email] = [
             'name' => $name,
             'email' => $email,
             'password' => password_hash($password, PASSWORD_DEFAULT)
         ];
-        $this->saveAll($users);
+
+        $this->saveAllUsers($users);
         return ['success' => true];
     }
 
     public function login($email, $password) {
-        $users = $this->getAll();
+        $users = $this->getAllUsers();
+
         if (!isset($users[$email])) {
-            return ['error' => 'Email not found.'];
+            return ['error' => 'User not found'];
         }
+
         if (!password_verify($password, $users[$email]['password'])) {
-            return ['error' => 'Invalid password.'];
+            return ['error' => 'Invalid password'];
         }
-        return ['success' => true, 'user' => $users[$email]];
+
+        return ['success' => true];
     }
 }

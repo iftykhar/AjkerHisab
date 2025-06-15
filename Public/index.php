@@ -1,12 +1,11 @@
 <?php
 session_start();
 
-require_once __DIR__ . '../App/Core/Router.php';
-require_once __DIR__ . '../App/Controllers/AuthController.php';
-require_once __DIR__ . '../App/Models/User.php';
+require_once __DIR__ . '/../vendor/autoload.php'; // ← autoload classes
 
 use App\Core\Router;
 
-$route = $_GET['route'] ?? '';
+$url = $_GET['route'] ?? '';
+
 $router = new Router();
-$router->handle($route);
+$router->route($url);

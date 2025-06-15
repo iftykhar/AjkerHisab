@@ -1,1 +1,12 @@
-{}
+{
+    "jole@mail.com": {
+        "name": "jole",
+        "email": "jole@mail.com",
+        "password": "$2y$10$QWnzU5M9j4W.gVZUihfhUeXgNB0ztnVJqK7hXH3oWfv9do7Rpj2ra"
+    },
+    "money@mail.com": {
+        "name": "money",
+        "email": "money@mail.com",
+        "password": "$2y$10$7qLaG2bJ5xN8OS4GtQOUlenR7M.GZ3INQ6Etn6HQY0YIty1\/lLi2a"
+    }
+}
