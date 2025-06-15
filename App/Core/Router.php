@@ -3,35 +3,27 @@ namespace App\Core;
 
 use App\Controllers\AuthController;
 
-class Router{
-
-    public function route($url){
-
+class Router {
+    public function handle($route) {
         $auth = new AuthController();
 
-        switch($url){
-            case'':
+        switch ($route) {
+            case '':
             case 'login':
-                $auth->login();
+                $_SERVER['REQUEST_METHOD'] === 'POST' ? $auth->login() : $auth->showLogin();
                 break;
-            case 'dashboard':
-                // $auth->register();
-                echo "Dashboard page";
+            case 'register':
+                $_SERVER['REQUEST_METHOD'] === 'POST' ? $auth->register() : $auth->showRegister();
                 break;
             case 'logout':
                 $auth->logout();
                 break;
-            case 'register':
-                if($_SERVER['REQUEST_METHOD'] === 'POST'){
-                    $auth->register();
-                }else{
-                    $auth->showRegisterForm();
-                }
+            case 'dashboard':
+                echo "Welcome to the dashboard, " . ($_SESSION['user'] ?? 'Guest') . "!";
                 break;
             default:
                 http_response_code(404);
-                echo '404 - page not found';
-                break;
+                echo "404 - Page not found";
         }
     }
 }
