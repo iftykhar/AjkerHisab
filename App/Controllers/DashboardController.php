@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Core\Session;
+use BadFunctionCallException;
 
 class DashboardController {
 
@@ -15,5 +16,9 @@ class DashboardController {
 
         // You can later fetch user expenses, summaries, etc.
         require_once __DIR__ . '/../Views/dashboard.php';
+    }
+
+    public function error(){
+        require_once __DIR__ . '/../Views/error.php';
     }
 }
