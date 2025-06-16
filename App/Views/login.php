@@ -1,14 +1,45 @@
 <!DOCTYPE html>
-<html>
-<head><title>Login</title></head>
-<body>
-    <h2>Login</h2>
-    <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
-    <form method="POST" action="index.php?route=do-login">
-        <input type="email" name="email" placeholder="Email" required><br>
-        <input type="password" name="password" placeholder="Password" required><br>
-        <button type="submit">Login</button>
-    </form>
-    <a href="index.php?route=register">Create an account</a>
+<html class="h-full bg-gray-100">
+<head>
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-full">
+    <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full space-y-8">
+            <div class="">
+                <h1 class="m-5 text-center text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-green-400  text-transparent bg-clip-text">AjkerHisab</h1>
+            </div>
+            <div>
+                <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
+            </div>
+            <?php if (isset($error)) echo "<p class='text-red-500 text-center'>$error</p>"; ?>
+            <form class="mt-8 space-y-6" method="POST" action="index.php?route=do-login">
+                <div class="rounded-md shadow-sm -space-y-px">
+                    <div>
+                        <input type="email" name="email" required 
+                            class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" 
+                            placeholder="Email address">
+                    </div>
+                    <div>
+                        <input type="password" name="password" required 
+                            class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" 
+                            placeholder="Password">
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" 
+                        class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Sign in
+                    </button>
+                </div>
+            </form>
+            <div class="text-center">
+                <a href="index.php?route=register" class="font-medium text-indigo-600 hover:text-indigo-500">
+                    Create new account
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
-</html>
+</html></body>

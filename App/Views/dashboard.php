@@ -5,13 +5,11 @@ require_once '../App/config.php';
 Session::start();
 
 // Check if user is logged in and has valid session
-// if (!Session::checkAuth() || /*!Session::get('user') || !Session::get('user_id')*/ ) {
-
-if(!Session::checkAuth()){
-// Not logged in, redirect to login page
-    header("Location: index.php?route=login");
-    exit();
-}
+// if (!Session::checkAuth() || !Session::get('user') || !Session::get('user_id') ) {
+// // Not logged in, redirect to login page
+//     header("Location: index.php?route=login");
+//     exit();
+// }
 
 // Check session timeout (optional, 30 minutes)
 $timeout = 60; // 1 minute in seconds
@@ -29,6 +27,9 @@ $_SESSION['last_activity'] = time();
 </head>
 <body>
     <p>Welcome, <?php echo htmlspecialchars(Session::get('user')); ?></p>
-    <a href='index.php?route=logout'>Logout</a>
+    <p><a href="index.php?route=expenses">View Expenses</a></p>
+    <p><a href="index.php?route=expense-create">Add Expense</a></p>
+    <p><a href="index.php?route=logout">Logout</a></p>
+
 </body>
 </html>
