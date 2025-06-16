@@ -4,15 +4,8 @@ require_once '../App/Core/Session.php';
 require_once '../App/config.php';
 Session::start();
 
-// Check if user is logged in and has valid session
-// if (!Session::checkAuth() || !Session::get('user') || !Session::get('user_id') ) {
-// // Not logged in, redirect to login page
-//     header("Location: index.php?route=login");
-//     exit();
-// }
-
-// Check session timeout (optional, 30 minutes)
-$timeout = 60; // 1 minute in seconds
+// Session timeout check
+$timeout = 60;
 if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > $timeout) {
     Session::destroy();
     header("Location: index.php?route=login?msg=session_expired");
@@ -24,12 +17,50 @@ $_SESSION['last_activity'] = time();
 <html>
 <head>
     <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <p>Welcome, <?php echo htmlspecialchars(Session::get('user')); ?></p>
-    <p><a href="index.php?route=expenses">View Expenses</a></p>
-    <p><a href="index.php?route=expense-create">Add Expense</a></p>
-    <p><a href="index.php?route=logout">Logout</a></p>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-lg p-6 max-w-2xl mx-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h1 class="text-2xl font-bold text-gray-800">Dashboard</h1>
+                <p class="text-gray-600">Welcome, <?php echo htmlspecialchars(Session::get('user')); ?></p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="index.php?route=expenses" 
+                   class="flex items-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition duration-300">
+                    <div class="p-3 bg-blue-500 rounded-full mr-4">
+                        <i class="fas fa-chart-bar text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-semibold text-gray-700">View Expenses</h2>
+                        <p class="text-sm text-gray-600">Check your expense history</p>
+                    </div>
+                </a>
 
+                <a href="index.php?route=expense-create" 
+                   class="flex items-center p-4 bg-green-50 rounded-lg hover:bg-green-100 transition duration-300">
+                    <div class="p-3 bg-green-500 rounded-full mr-4">
+                        <i class="fas fa-plus text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-semibold text-gray-700">Add Expense</h2>
+                        <p class="text-sm text-gray-600">Record new expenses</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="mt-6 text-center">
+                <a href="index.php?route=logout" 
+                   class="inline-flex items-center px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition duration-300">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
-</html>
+</html></div>
