@@ -1,0 +1,62 @@
+[
+    {
+        "user": "admin@mail.com",
+        "title": "new",
+        "amount": "122",
+        "date": "2019-03-07"
+    },
+    {
+        "user": "admin@mail.com",
+        "title": "more",
+        "amount": "333",
+        "date": "2025-06-14"
+    },
+    {
+        "user": "admin@mail.com",
+        "title": "service",
+        "amount": "499",
+        "date": "2025-06-06"
+    },
+    {
+        "user": "hisabi@mail.com",
+        "title": "new expense",
+        "amount": "38",
+        "date": "2025-06-09"
+    },
+    {
+        "user": null,
+        "title": "main course",
+        "amount": "12",
+        "date": "2025-07-22"
+    },
+    {
+        "user": "fake@mail.com",
+        "title": "History now",
+        "amount": "15",
+        "date": "2025-06-17"
+    },
+    {
+        "user": "iftykhar@mail.com",
+        "title": "Transporst",
+        "amount": "40",
+        "date": "2025-06-17"
+    },
+    {
+        "user": "iftykhar@mail.com",
+        "title": "Food",
+        "amount": "30",
+        "date": "2025-06-17"
+    },
+    {
+        "user": "iftykhar@mail.com",
+        "title": "Cloth",
+        "amount": "200",
+        "date": "2025-06-17"
+    },
+    {
+        "user": "iftykhar@mail.com",
+        "title": "Experiment",
+        "amount": "300",
+        "date": "2025-06-17"
+    }
+]

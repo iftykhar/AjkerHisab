@@ -7,10 +7,10 @@ use BadFunctionCallException;
 class DashboardController {
 
     public function index() {
-        // if (!Session::checkAuth()) {
-        //     header('Location: index.php?route=login');
-        //     exit;
-        // }
+        if (!Session::checkAuth()) {
+            header('Location: index.php?route=login');
+            exit;
+        }
 
         $user = Session::get('user');
 

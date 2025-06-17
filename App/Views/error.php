@@ -17,7 +17,7 @@
         <h1 class="text-8xl font-bold text-red-500 mb-4">404</h1>
         <p class="text-gray-600 text-xl mb-8">Oops! The page you're looking for cannot be found.</p>
         <a href="index.php?route=login" class="inline-block px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
-            <i class="fas fa-home mr-2"></i>
+            <i class="fa-solid fa-rotate-left"></i>
             Back 
         </a>
     </div>

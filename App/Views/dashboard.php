@@ -22,6 +22,9 @@ $_SESSION['last_activity'] = time();
 <body class="bg-gray-100 min-h-screen">
     <div class="container mx-auto px-4 py-8">
         <div class="bg-white rounded-lg shadow-lg p-6 max-w-2xl mx-auto">
+            <div class="text-center">
+                 <h1 class="m-5 text-center text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-green-400  text-transparent bg-clip-text">AjkerHisab</h1>
+            </div>
             <div class="flex items-center justify-between mb-6">
                 <h1 class="text-2xl font-bold text-gray-800">Dashboard</h1>
                 <p class="text-gray-600">Welcome, <?php echo htmlspecialchars(Session::get('user')); ?></p>

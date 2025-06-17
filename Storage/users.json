@@ -18,5 +18,25 @@
         "name": "jadu",
         "email": "jadu@mail.com",
         "password": "$2y$10$PKjqMaMfS6sqwiHkB9U8SOFn88r7.PhdWeHxC.QFCceNPXf3pQwRi"
+    },
+    "hisabi@mail.com": {
+        "name": "hisabi",
+        "email": "hisabi@mail.com",
+        "password": "$2y$10$Nz41NajQiSzpeFHwX\/dDOOJVKbveusiKlaE8GLA1B8vyQ8wcHuyf2"
+    },
+    "neuton@mail.com": {
+        "name": "neuton",
+        "email": "neuton@mail.com",
+        "password": "$2y$10$KendaLRecOjMlErn3YnfsODcarl\/1SEi95mjeS32Hf0J.8xUCRl4."
+    },
+    "iftykhar@mail.com": {
+        "name": "iftykhar",
+        "email": "iftykhar@mail.com",
+        "password": "$2y$10$o3rneE9NluK\/jDKgnUsngeiHmHCNiHHayt3ewCRSi0uXxE8cz3gLi"
+    },
+    "jilmil@mail.com": {
+        "name": "jilmil",
+        "email": "jilmil@mail.com",
+        "password": "$2y$10$E6MAF713i4SSn3dHywbCxO\/TF2vR31WufhgCOy2hfZErjbZ2sZGbi"
     }
 }

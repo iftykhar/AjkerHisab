@@ -8,19 +8,21 @@ class Session{
         }
     }
 
-    public static function get($key){
-        return $_SESSION[$key] ?? null;
-    }
-
     public static function set($key, $value){
         $_SESSION[$key] = $value;
     }
 
-    public static function destroy(){
-        session_destroy();
+    public static function get($key){
+        return $_SESSION[$key] ?? null;
     }
 
+
     public static function checkAuth(){
-        return isset($_SESSION['user_id']);
+        return isset($_SESSION['user']);
+    }
+
+        public static function destroy(){
+            session_unset();
+            session_destroy();
     }
 }

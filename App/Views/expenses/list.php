@@ -1,3 +1,9 @@
+<?php 
+
+use App\Core\Session;
+require_once '../App/Core/Session.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +16,7 @@
 <body class="bg-gray-100 min-h-screen p-8">
     <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6">
         <h2 class="text-2xl font-bold mb-6 text-gray-800 flex items-center">
-            <i class="fas fa-receipt mr-2"></i> Your Expenses
+            <i class="fas fa-receipt mr-2"></i> <?php echo htmlspecialchars(Session::get('user')); ?> Expenses
         </h2>
         
         <div class="space-y-3">
