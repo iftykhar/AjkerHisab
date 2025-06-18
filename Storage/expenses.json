@@ -3,60 +3,84 @@
         "user": "admin@mail.com",
         "title": "new",
         "amount": "122",
-        "date": "2019-03-07"
+        "date": "2019-03-07",
+        "category": "household"
     },
     {
         "user": "admin@mail.com",
         "title": "more",
         "amount": "333",
-        "date": "2025-06-14"
+        "date": "2025-06-14",
+        "category": "household"
     },
     {
         "user": "admin@mail.com",
         "title": "service",
         "amount": "499",
-        "date": "2025-06-06"
+        "date": "2025-06-06",
+        "category": "household"
     },
     {
         "user": "hisabi@mail.com",
         "title": "new expense",
         "amount": "38",
-        "date": "2025-06-09"
+        "date": "2025-06-09",
+        "category": "household"
     },
     {
         "user": null,
         "title": "main course",
         "amount": "12",
-        "date": "2025-07-22"
+        "date": "2025-07-22",
+        "category": "household"
     },
     {
         "user": "fake@mail.com",
         "title": "History now",
         "amount": "15",
-        "date": "2025-06-17"
+        "date": "2025-06-17",
+        "category": "household"
     },
     {
         "user": "iftykhar@mail.com",
         "title": "Transporst",
         "amount": "40",
-        "date": "2025-06-17"
+        "date": "2025-06-17",
+        "category": "household"
     },
     {
         "user": "iftykhar@mail.com",
         "title": "Food",
         "amount": "30",
-        "date": "2025-06-17"
+        "date": "2025-06-17",
+        "category": "household"
     },
     {
         "user": "iftykhar@mail.com",
         "title": "Cloth",
         "amount": "200",
-        "date": "2025-06-17"
+        "date": "2025-06-17",
+        "category": "household"
     },
     {
         "user": "iftykhar@mail.com",
         "title": "Experiment",
         "amount": "300",
-        "date": "2025-06-17"
+        "date": "2025-06-17",
+        "category": "household"
+    },
+    {
+        "user": "admin@mail.com",
+        "title": "Food",
+        "amount": "4000",
+        "date": "2025-06-18",
+        "category": "household"
+    },
+    {
+        "user": "admin@mail.com",
+        "title": "Rickshaw",
+        "amount": "200",
+        "date": "2025-06-18",
+        "category": "transport"
     }
 ]

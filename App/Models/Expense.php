@@ -6,7 +6,7 @@ class Expense {
 
     public function __construct() {
         // $this->file = __DIR__ . '/../../../Storage/expenses.json';
-        $this->file = __DIR__ . '/../../../Storage/expenses.json';
+        $this->file = __DIR__ . '/../../Storage/expenses.json';
         if (!file_exists($this->file)) {
             file_put_contents($this->file, json_encode([]));
         }

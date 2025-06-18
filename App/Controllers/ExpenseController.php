@@ -14,8 +14,9 @@ class ExpenseController {
         $title = $_POST['title'] ?? '';
         $amount = $_POST['amount'] ?? '';
         $date = $_POST['date'] ?? '';
+        $category = $_POST['category'] ?? '';
 
-        if (!$title || !$amount || !$date) {
+        if (!$title || !$amount || !$date || !$category) {
             $error = "All fields are required.";
             require_once __DIR__ . '/../Views/expenses/create.php';
             return;
@@ -26,7 +27,8 @@ class ExpenseController {
             'user' => Session::get('user'),
             'title' => $title,
             'amount' => $amount,
-            'date' => $date
+            'date' => $date,
+            'category' => $category
         ]);
 
         header('Location: index.php?route=expenses');

@@ -19,6 +19,16 @@
                 <input type="text" name="title" placeholder="Title" 
                     class="w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
+            <div class="relative">
+                <i class="fas fa-list absolute left-3 top-3 text-gray-400"></i>
+                <select name="category" 
+                    class="w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">Select Category</option>
+                    <option value="household">Household</option>
+                    <option value="transport">Transport</option>
+                    <option value="academic">Academic</option>
+                </select>
+            </div>
             
             <div class="relative">
                 <i class="fas fa-dollar-sign absolute left-3 top-3 text-gray-400"></i>
