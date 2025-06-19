@@ -43,6 +43,11 @@ class Router {
                     $expense->store();
                 }
                 break;
+            case str_starts_with($url, 'ajax-'):
+                $partial = substr($url, 5);
+                require_once __DIR__ . "/../Views/Partials/{$partial}.php";
+                break;
+
             default:
                 http_response_code(404);
                 // echo "404 Not Found";
