@@ -49,13 +49,7 @@ class Router {
                 break;
             case 'expense-delete':
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    $id = $_POST['id'] ?? null;
-                    if ($id !== null) {
-                        $expense->delete($id);
-                    } else {
-                        // Handle missing ID, e.g., show error or redirect
-                        $dashboard->error();
-                    }
+                    $expense->delete();
                 }
                 break;
 

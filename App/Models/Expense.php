@@ -37,18 +37,24 @@ class Expense {
         }
     }
 
-    // Save a new expense (append)
-    // public function save(array $data) {
-    //     $all = $this->getAllData();
-    //     $all[] = $data;
-    //     file_put_contents($this->file, json_encode($all, JSON_PRETTY_PRINT));
-    // }
     public function save(array $data) {
-        $all = $this->getAllData();
-        $data['id'] = uniqid(); // Add unique ID
+        $all = json_decode(file_get_contents($this->file), true) ?? [];
+
+        if (!isset($data['id'])) {
+            $data['id'] = uniqid();
+        }
+
         $all[] = $data;
         file_put_contents($this->file, json_encode($all, JSON_PRETTY_PRINT));
     }
+
+
+    // public function save(array $data) {
+    //     $all = $this->getAllData();
+    //     $data['id'] = uniqid(); // Add unique ID
+    //     $all[] = $data;
+    //     file_put_contents($this->file, json_encode($all, JSON_PRETTY_PRINT));
+    // }
 
 
     // Get all expenses for a specific user
@@ -61,8 +67,9 @@ class Expense {
         return json_decode(file_get_contents($this->file), true) ?? [];
     }
 
-    // ✅ NEW: Overwrite all expenses
-    public function saveAll(array $expenses): void {
-        file_put_contents($this->file, json_encode($expenses, JSON_PRETTY_PRINT));
-    }
+    
+    public function saveAll(array $expenses) {
+    file_put_contents($this->file, json_encode($expenses, JSON_PRETTY_PRINT));
+}
+
 }
