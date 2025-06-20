@@ -47,6 +47,17 @@ class Router {
                 $partial = substr($url, 5);
                 require_once __DIR__ . "/../Views/Partials/{$partial}.php";
                 break;
+            case 'expense-delete':
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $id = $_POST['id'] ?? null;
+                    if ($id !== null) {
+                        $expense->delete($id);
+                    } else {
+                        // Handle missing ID, e.g., show error or redirect
+                        $dashboard->error();
+                    }
+                }
+                break;
 
             default:
                 http_response_code(404);

@@ -54,6 +54,16 @@ require_once '../App/Core/Session.php';
                     <div><i class="fas fa-list mr-2"></i><?= htmlspecialchars($exp['category']) ?></div>
                     <div class="font-bold text-green-600">৳<?= htmlspecialchars($exp['amount']) ?></div>
                     </div>
+                    <div class="flex items-center gap-3">
+                  
+                    <!-- Delete button -->
+                    <form action="index.php?route=expense-delete" method="POST" onsubmit="return confirm('Delete this expense?')">
+                        <input type="hidden" name="id" value="<?= htmlspecialchars($exp['id']) ?>">
+                        <button type="submit" class="text-red-500 hover:text-red-700">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </form>
+                </div>
                 </div>
                 </div>
             </div>
