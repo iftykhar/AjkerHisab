@@ -26,7 +26,12 @@ class ExpenseController
 
         $expense = new Expense();
         $expense->save([
-            'id' => uniqid(), // Unique ID for deletion
+            // 'id' => uniqid(), // Unique ID for deletion
+            // 'user' => Session::get('user'),
+            // 'title' => $title,
+            // 'amount' => $amount,
+            // 'date' => $date,
+            // 'category' => $category
             'user' => Session::get('user'),
             'title' => $title,
             'amount' => $amount,
@@ -62,6 +67,10 @@ class ExpenseController
     public function delete() {
         $id = $_POST['id'] ?? '';
         $user = Session::get('user');
+
+        // var_dump($id);
+        
+        // exit;
 
         $expenseModel = new Expense();
         $allExpenses = json_decode(file_get_contents(__DIR__ . '/../../Storage/expenses.json'), true) ?? [];
