@@ -37,7 +37,7 @@ require_once '../App/Core/Session.php';
                     <div class="flex items-center">
                     <i class="fas fa-calendar-alt text-gray-500 mr-3"></i>
                     <span><?= htmlspecialchars($exp['date']) ?></span>
-                    <i class="fas fa-header mx-3 text-gray-400"></i>
+                    <i class="fas fa-heading mx-3 text-gray-400"></i>
                     <span><?= htmlspecialchars($exp['title']) ?></span>
                     <i class="fas fa-list mx-3 text-gray-400"></i>
                     <span><?= htmlspecialchars($exp['category']) ?></span>
@@ -49,10 +49,16 @@ require_once '../App/Core/Session.php';
                 <!-- Grid View -->
                 <div class="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 items-center ">
                     <div class="space-y-2">
-                    <div><i class="fas fa-calendar-alt mr-2"></i><?= htmlspecialchars($exp['date']) ?></div>
-                    <div><i class="fas fa-header mr-2"></i><?= htmlspecialchars($exp['title']) ?></div>
-                    <div><i class="fas fa-list mr-2"></i><?= htmlspecialchars($exp['category']) ?></div>
-                    <div class="font-bold text-green-600">৳<?= htmlspecialchars($exp['amount']) ?></div>
+                        <div><i class="fas fa-calendar-alt mr-2"></i><?= htmlspecialchars($exp['date']) ?></div>
+                        <div><i class="fas fa-heading mr-2"></i><?= htmlspecialchars($exp['title']) ?></div>
+                        <div><i class="fas fa-list mr-2"></i><?= htmlspecialchars($exp['category']) ?></div>
+                        <div class="font-bold text-green-600">৳<?= htmlspecialchars($exp['amount']) ?></div>
+                    </div>
+                    <div class="">
+                        <!-- <a href="index.php?route=expense-edit&id=<?= htmlspecialchars($exp['id']) ?>" class="text-blue-500 hover:text-blue-700 mr-3"> -->
+                        <a href="index.php?route=expense-edit&id=<?= htmlspecialchars($exp['id'] ?? '') ?>" class="text-blue-500 hover:text-blue-700 mr-3"><i class="fas fa-edit"></i></a>
+                        <?php var_dump($exp['id'] ?? 'no-id'); ?>
+
                     </div>
                     <div class="flex items-center gap-3">
                   

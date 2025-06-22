@@ -53,16 +53,48 @@ class ExpenseController
 
     
 
-    // public function delete($id) {
-    //     $user = Session::get('user');
-    //     $expense = new Expense();
-    //     $all = $expense->getAllData();
+    public function editForm() {
+        $id = $_GET['id'] ?? null;
+        $user = Session::get('user');
+        $expenseModel = new Expense();
+        $expenses = $expenseModel->getAll($user);
 
-    //     $filtered = array_filter($all, fn($e) => !($e['id'] === $id && $e['user'] === $user));
-    //     $expense->saveAll(array_values($filtered));
+        foreach ($expenses as $e) {
+            if ($e['id'] === $id) {
+                $expense = $e;
+                require_once __DIR__ . '/../Views/expenses/edit.php';
+                return;
+            }
+        }
 
-    //     header('Location: index.php?route=expenses');
-    // }
+        header('Location: index.php?route=expenses&error=notfound');
+    }
+
+    public function update() {
+        $id = $_POST['id'] ?? null;
+        $title = $_POST['title'] ?? '';
+        $amount = $_POST['amount'] ?? '';
+        $date = $_POST['date'] ?? '';
+        $category = $_POST['category'] ?? '';
+        $user = Session::get('user');
+
+        if (!$id || !$title || !$amount || !$date || !$category) {
+            $error = "All fields are required.";
+            require_once __DIR__ . '/../Views/expenses/edit.php';
+            return;
+        }
+
+        $expenseModel = new Expense();
+        $expenseModel->update($id, [
+            'title' => $title,
+            'amount' => $amount,
+            'date' => $date,
+            'category' => $category,
+        ], $user);
+
+        header('Location: index.php?route=expenses');
+    }
+
 
     public function delete() {
         $id = $_POST['id'] ?? '';

@@ -82,5 +82,13 @@
         "amount": "200",
         "date": "2025-06-18",
         "category": "transport"
+    },
+    {
+        "user": "admin@mail.com",
+        "title": "test data",
+        "amount": "670",
+        "date": "2025-06-10",
+        "category": "transport",
+        "id": "exp_68584358257343.62755389"
     }
 ]

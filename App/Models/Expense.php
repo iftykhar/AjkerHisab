@@ -36,6 +36,18 @@ class Expense {
 }
 
 
+    public function update(string $id, array $newData, string $userEmail) {
+        $all = json_decode(file_get_contents($this->file), true) ?? [];
+
+        foreach ($all as &$expense) {
+            if ($expense['id'] === $id && $expense['user'] === $userEmail) {
+                $expense = array_merge($expense, $newData);
+                break;
+            }
+        }
+
+        file_put_contents($this->file, json_encode($all, JSON_PRETTY_PRINT));
+    }
 
     // Get all expenses for a specific user
     public function getAll(string $userEmail): array {

@@ -52,6 +52,15 @@ class Router {
                     $expense->delete();
                 }
                 break;
+            case 'expense-edit':
+                $expense->editForm();
+                break;
+
+            case 'expense-update':
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $expense->update();
+                }
+                break;
 
             default:
                 http_response_code(404);
