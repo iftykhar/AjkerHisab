@@ -12,6 +12,8 @@ require_once '../App/Core/Session.php';
     <title>Expense List</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body class="bg-gray-100 min-h-screen p-8">
     <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6">
@@ -28,6 +30,21 @@ require_once '../App/Core/Session.php';
             </button>
         </div>
 
+        <div class="bg-blue-100 p-4 rounded-lg shadow mb-6">
+            <h3 class="text-lg font-bold mb-2 text-blue-800">Summary</h3>
+            <p class="text-center p-4"><strong>Total Spent:</strong> ৳<?= isset($total) ? number_format($total, 2) : '0.00' ?></p>
+            <p class="text-center p-4"><strong>Top 3 Categories:</strong></p>
+            <ul class="ml-4 list-disc text-gray-700">
+                <?php if (isset($topCategories) && is_array($topCategories)): ?>
+                    <?php foreach ($topCategories as $cat => $amt): ?>
+                        <li><?= htmlspecialchars($cat) ?>: ৳<?= number_format($amt, 2) ?></li>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <li>No categories found.</li>
+                <?php endif; ?>
+            </ul>
+        </div>
+        
         <div class="space-y-3">
             <?php foreach ($expenses as $index => $exp): ?>
             <div class="expense-item mb-4">
@@ -78,6 +95,11 @@ require_once '../App/Core/Session.php';
             <?php endforeach; ?>
         </div>
 
+        <div class="bg-white p-4 mt-4 rounded shadow">
+            <h3 class="text-lg font-semibold mb-2">Monthly Spending Chart</h3>
+            <canvas id="monthlyChart" height="150"></canvas>
+        </div>
+
         <a href="index.php?route=dashboard" class="mt-6 inline-flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition duration-150">
             <i class="fas fa-arrow-left mr-2"></i>
             Back to Dashboard
@@ -98,6 +120,36 @@ require_once '../App/Core/Session.php';
         document.querySelectorAll('.gridView').forEach(view => view.classList.remove('hidden'));
         });
     </script>
+    <script>
+        const monthlyData = <?= json_encode($monthly) ?>;
+
+        const labels = Object.keys(monthlyData);
+        const values = Object.values(monthlyData);
+
+        const ctx = document.getElementById('monthlyChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '৳ Spent',
+                    data: values,
+                    backgroundColor: '#3b82f6'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Monthly Expenses'
+                    }
+                }
+            }
+        });
+    </script>
+
 
 </body>
 </html>

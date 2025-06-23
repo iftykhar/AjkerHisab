@@ -43,10 +43,37 @@ class ExpenseController
         exit();
     }
 
-    public function list()
-    {
+    // public function list()
+    // {
+    //     $expense = new Expense();
+    //     $expenses = $expense->getAll(Session::get('user'));
+
+    //     require_once __DIR__ . '/../Views/expenses/list.php';
+    // }
+
+    public function list() {
         $expense = new Expense();
         $expenses = $expense->getAll(Session::get('user'));
+
+        $total = 0;
+        $monthly = [];
+        $categories = [];
+
+        foreach ($expenses as $e) {
+            $amount = (float)$e['amount'];
+            $total += $amount;
+
+            // Monthly breakdown
+            $month = date('Y-m', strtotime($e['date']));
+            $monthly[$month] = ($monthly[$month] ?? 0) + $amount;
+
+            // Category breakdown
+            $cat = $e['category'];
+            $categories[$cat] = ($categories[$cat] ?? 0) + $amount;
+        }
+
+        arsort($categories);
+        $topCategories = array_slice($categories, 0, 3, true);
 
         require_once __DIR__ . '/../Views/expenses/list.php';
     }

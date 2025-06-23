@@ -4,89 +4,101 @@
         "title": "new",
         "amount": "122",
         "date": "2019-03-07",
-        "category": "household"
+        "category": "household",
+        "id": "exp_1"
     },
     {
         "user": "admin@mail.com",
         "title": "more",
         "amount": "333",
         "date": "2025-06-14",
-        "category": "household"
+        "category": "household",
+        "id": "exp_2"
     },
     {
         "user": "admin@mail.com",
         "title": "service",
         "amount": "499",
         "date": "2025-06-06",
-        "category": "household"
+        "category": "household",
+        "id": "exp_3"
     },
     {
         "user": "hisabi@mail.com",
         "title": "new expense",
         "amount": "38",
         "date": "2025-06-09",
-        "category": "household"
+        "category": "household",
+        "id": "exp_4"
     },
     {
         "user": null,
         "title": "main course",
         "amount": "12",
         "date": "2025-07-22",
-        "category": "household"
+        "category": "household",
+        "id": "exp_5"
     },
     {
         "user": "fake@mail.com",
         "title": "History now",
         "amount": "15",
         "date": "2025-06-17",
-        "category": "household"
+        "category": "household",
+        "id": "exp_6"
     },
     {
         "user": "iftykhar@mail.com",
         "title": "Transporst",
         "amount": "40",
         "date": "2025-06-17",
-        "category": "household"
+        "category": "household",
+        "id": "exp_7"
     },
     {
         "user": "iftykhar@mail.com",
         "title": "Food",
         "amount": "30",
         "date": "2025-06-17",
-        "category": "household"
+        "category": "household",
+        "id": "exp_8"
     },
     {
         "user": "iftykhar@mail.com",
         "title": "Cloth",
         "amount": "200",
         "date": "2025-06-17",
-        "category": "household"
+        "category": "household",
+        "id": "exp_9"
     },
     {
         "user": "iftykhar@mail.com",
         "title": "Experiment",
         "amount": "300",
         "date": "2025-06-17",
-        "category": "household"
+        "category": "household",
+        "id": "exp_10"
     },
     {
         "user": "admin@mail.com",
         "title": "Food",
-        "amount": "4000",
+        "amount": "700",
         "date": "2025-06-18",
-        "category": "household"
+        "category": "household",
+        "id": "exp_11"
     },
     {
         "user": "admin@mail.com",
         "title": "Rickshaw",
         "amount": "200",
         "date": "2025-06-18",
-        "category": "transport"
+        "category": "transport",
+        "id": "exp_12"
     },
     {
         "user": "admin@mail.com",
         "title": "test data",
-        "amount": "670",
+        "amount": "679",
         "date": "2025-06-10",
         "category": "transport",
         "id": "exp_68584358257343.62755389"
