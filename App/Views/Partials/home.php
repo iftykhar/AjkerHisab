@@ -1,8 +1,4 @@
-<!-- <div class="p-4 bg-white rounded shadow">
-    <h2 class="text-xl font-bold mb-4">Welcome to AjkerHisab!</h2>
-    <p>This is your dashboard overview. Use the menu to manage your expenses.</p>
-</div>
- -->
+
 <?php 
 use App\Models\Expense;
 require_once __DIR__ . '/../../../App/Models/Expense.php';
@@ -10,7 +6,18 @@ require_once __DIR__ . '/../../../App/Models/Expense.php';
 $expenseModel = new Expense();
 $expenses = $expenseModel->getAll($_SESSION['user'] ?? '');
 ?>
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
 <div class="p-6 bg-white rounded-lg shadow-md">
     <h2 class="text-2xl font-bold text-gray-800 mb-2">Welcome to AjkerHisab 👋</h2>
     <p class="text-gray-600 mb-4">

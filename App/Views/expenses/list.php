@@ -30,19 +30,33 @@ require_once '../App/Core/Session.php';
             </button>
         </div>
 
-        <div class="bg-blue-100 p-4 rounded-lg shadow mb-6">
-            <h3 class="text-lg font-bold mb-2 text-blue-800">Summary</h3>
-            <p class="text-center p-4"><strong>Total Spent:</strong> ৳<?= isset($total) ? number_format($total, 2) : '0.00' ?></p>
-            <p class="text-center p-4"><strong>Top 3 Categories:</strong></p>
-            <ul class="ml-4 list-disc text-gray-700">
-                <?php if (isset($topCategories) && is_array($topCategories)): ?>
-                    <?php foreach ($topCategories as $cat => $amt): ?>
-                        <li><?= htmlspecialchars($cat) ?>: ৳<?= number_format($amt, 2) ?></li>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <li>No categories found.</li>
-                <?php endif; ?>
-            </ul>
+        <div class="bg-white p-6 rounded-xl shadow-md mb-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+            <i class="fas fa-chart-pie text-blue-500"></i> Expense Summary
+        </h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <div class="bg-blue-100 text-blue-800 p-4 rounded-lg text-center shadow-sm">
+                    <p class="text-sm font-medium">Total Spent</p>
+                    <p class="text-2xl font-bold">৳<?= isset($total) ? number_format($total, 2) : '0.00' ?></p>
+                </div>
+
+                <div class="bg-green-100 text-green-800 p-4 rounded-lg shadow-sm">
+                    <p class="text-sm font-medium mb-2 text-center">Top 3 Categories</p>
+                    <ul class="text-sm space-y-1">
+                        <?php if (isset($topCategories) && is_array($topCategories)): ?>
+                            <?php foreach ($topCategories as $cat => $amt): ?>
+                                <li class="flex justify-between border-b pb-1">
+                                    <span><?= htmlspecialchars($cat) ?></span>
+                                    <span class="font-semibold">৳<?= number_format($amt, 2) ?></span>
+                                </li>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <li class="text-gray-600">No categories found.</li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+            </div>
         </div>
         
         <div class="space-y-3">
@@ -59,7 +73,22 @@ require_once '../App/Core/Session.php';
                     <i class="fas fa-list mx-3 text-gray-400"></i>
                     <span><?= htmlspecialchars($exp['category']) ?></span>
                     </div>
-                    <span class="font-bold text-green-600">৳<?= htmlspecialchars($exp['amount']) ?></span>
+                    <div class="flex items-center gap-4">
+                        <span class="font-bold text-green-600">৳<?= htmlspecialchars($exp['amount']) ?></span>
+                        <!-- Edit Button -->
+                        <a href="index.php?route=expense-edit&id=<?= htmlspecialchars($exp['id'] ?? '') ?>" 
+                        class="text-blue-500 hover:text-blue-700">
+                            <i class="fas fa-edit"></i>
+                        </a>
+
+                        <!-- Delete Button -->
+                        <form action="index.php?route=expense-delete" method="POST" onsubmit="return confirm('Delete this expense?')">
+                            <input type="hidden" name="id" value="<?= htmlspecialchars($exp['id'] ?? '') ?>">
+                            <button type="submit" class="text-red-500 hover:text-red-700">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
                 </div>
                 <div class="gridView hidden grid grid-cols-2 gap-4">

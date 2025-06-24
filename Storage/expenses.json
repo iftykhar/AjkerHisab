@@ -11,7 +11,7 @@
         "user": "admin@mail.com",
         "title": "more",
         "amount": "333",
-        "date": "2025-06-14",
+        "date": "2024-11-11",
         "category": "household",
         "id": "exp_2"
     },
@@ -83,7 +83,7 @@
         "user": "admin@mail.com",
         "title": "Food",
         "amount": "700",
-        "date": "2025-06-18",
+        "date": "2025-04-15",
         "category": "household",
         "id": "exp_11"
     },
@@ -102,5 +102,13 @@
         "date": "2025-06-10",
         "category": "transport",
         "id": "exp_68584358257343.62755389"
+    },
+    {
+        "user": "iftykhar@mail.com",
+        "title": "books",
+        "amount": "200",
+        "date": "2025-03-14",
+        "category": "transport",
+        "id": "exp_685a4cce0f21b3.13540802"
     }
 ]
