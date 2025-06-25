@@ -17,9 +17,19 @@ require_once '../App/Core/Session.php';
 </head>
 <body class="bg-gray-100 min-h-screen p-8">
     <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6">
-        <h2 class="text-2xl font-bold mb-6 text-gray-800 flex items-center">
-            <i class="fas fa-receipt mr-2"></i> <?php echo htmlspecialchars(Session::get('user')); ?> Expenses
-        </h2>
+        <div class="flex justify-between items-center mb-6">
+            <div>
+            <h2 class="text-2xl font-bold text-gray-800 flex items-center">
+                <i class="fas fa-receipt mr-2"></i> <?php echo htmlspecialchars(Session::get('user')); ?> Expenses
+            </h2>
+            </div>
+            <div>
+            <h1 class="text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-green-400 text-transparent bg-clip-text text-center">
+                AjkerHisab <span class="text-6xl">৳</span>
+            </h1>
+            </div>
+        </div>
+        
         
         <div class="mb-4 flex justify-end space-x-2">
             <button id="listViewBtn" class="px-3 py-1 bg-gray-200 rounded-lg">

@@ -8,7 +8,7 @@
     <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-md w-full space-y-8">
             <div class="">
-                <h1 class="m-5 text-center text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-green-400  text-transparent bg-clip-text">AjkerHisab</h1>
+                <h1 class="m-5 text-center text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-green-400  text-transparent bg-clip-text">AjkerHisab <span class="text-6xl">৳</span> </h1>
             </div>
             <div>
                 <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
