@@ -4,12 +4,14 @@ namespace App\Core;
 use App\Controllers\AuthController;
 use App\Controllers\DashboardController;
 use App\Controllers\ExpenseController;
+use App\Controllers\CategoryController;
 
 class Router {
     public function route($url) {
         $auth = new AuthController();
         $dashboard = new DashboardController();
         $expense = new ExpenseController();
+        $cat = new CategoryController();
 
         switch ($url) {
             case '':
@@ -60,6 +62,12 @@ class Router {
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $expense->update();
                 }
+                break;
+            case 'categories':
+                $cat->index();
+                break;
+            case 'category-store':
+                $cat->store();
                 break;
 
             default:
