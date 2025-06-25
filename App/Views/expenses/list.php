@@ -24,9 +24,9 @@ require_once '../App/Core/Session.php';
             </h2>
             </div>
             <div>
-            <h1 class="text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-green-400 text-transparent bg-clip-text text-center">
-                AjkerHisab <span class="text-6xl">৳</span>
-            </h1>
+                <h1 class="text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-green-400 text-transparent bg-clip-text text-center">
+                    AjkerHisab <span class="text-6xl">৳</span>
+                </h1>
             </div>
         </div>
         

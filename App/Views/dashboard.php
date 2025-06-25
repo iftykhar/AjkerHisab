@@ -49,17 +49,18 @@ $_SESSION['last_activity'] = time();
                         <p class="text-sm text-gray-600">Check your expense history</p>
                     </div>
                 </a>
-                <!-- <a href="index.php?route=expense-create" 
+                <a href="index.php?route=expense-category-report" 
                    class="flex items-center p-4 bg-green-50 rounded-lg hover:bg-green-100 transition duration-300">
                     <div class="p-3 bg-green-500 rounded-full mr-4">
-                        <i class="fas fa-plus text-white text-xl"></i>
+                        <i class="fas fa-chart-pie text-white text-xl"></i>
                     </div>
                     <div>
-                        <h2 class="text-lg font-semibold text-gray-700">Add Expense</h2>
-                        <p class="text-sm text-gray-600">Record new expenses</p>
+                        <h2 class="text-lg font-semibold text-gray-700">View Report</h2>
+                        <p class="text-sm text-gray-600">Report Based On Categories</p>
                     </div>
-                </a> -->
-                <div class="mt-6 text-center">
+                </a>
+            </nav>
+            <div class="mt-6 text-center">
                 <a href="index.php?route=logout" 
                    class="inline-flex items-center px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition duration-300">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,8 +69,21 @@ $_SESSION['last_activity'] = time();
                     Logout
                 </a>
             </div>
+            <div class="m-4 flex justify-center space-x-2">
+                <a href="index.php?route=export-csv" class="px-3 py-1 bg-gray-500 text-white rounded hover:bg-green-600">
+                    <i class="fas fa-file-csv mr-1"></i> Export CSV
+                </a>
+                <a href="index.php?route=export-pdf" class="px-3 py-1 bg-red-700 text-white rounded hover:bg-red-600">
+                    <i class="fas fa-file-pdf mr-1"></i> Export PDF
+                </a>
+            </div>
             
-            </nav>
+
+
+            <!-- SPA Content -->
+            <div id="app" class="mt-6 mb-6">
+               
+            </div>
             <div class="max-w-lg mx-auto bg-white p-6 rounded shadow">
                 <h2 class="text-xl font-bold mb-4">Manage Categories</h2>
 
@@ -94,12 +108,6 @@ $_SESSION['last_activity'] = time();
                 </ul>
 
                 <!-- <a href="index.php?route=dashboard" class="mt-6 inline-block text-blue-600 hover:underline">← Back to Dashboard</a> -->
-            </div>
-
-
-            <!-- SPA Content -->
-            <div id="app" class="mt-6">
-               
             </div>
         </div>
     </div>

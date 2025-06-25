@@ -110,5 +110,13 @@
         "date": "2025-03-14",
         "category": "transport",
         "id": "exp_685a4cce0f21b3.13540802"
+    },
+    {
+        "user": "admin@mail.com",
+        "title": "Pen Drive",
+        "amount": "900",
+        "date": "2025-06-25",
+        "category": "Technology",
+        "id": "exp_685c30a904a355.27933708"
     }
 ]

@@ -7,8 +7,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gray-100 min-h-screen p-8"></body>
+<body class="bg-gray-100 min-h-screen p-8">
+    
     <div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
+        <div class="mb-3 p-4">
+            <h1 class="text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-green-400 text-transparent bg-clip-text text-center">
+                AjkerHisab <span class="text-6xl">৳</span>
+            </h1>
+        </div>
         <h2 class="text-2xl font-bold mb-6 text-gray-800">
             <i class="fas fa-plus-circle mr-2"></i>Add New Expense
         </h2>
@@ -20,14 +26,20 @@
                     class="w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
             <div class="relative">
-                <i class="fas fa-list absolute left-3 top-3 text-gray-400"></i>
-                <select name="category" 
-                    class="w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <option value="">Select Category</option>
-                    <option value="household">Household</option>
-                    <option value="transport">Transport</option>
-                    <option value="academic">Academic</option>
-                </select>
+                <!-- <i class="fas fa-list absolute left-3 top-3 text-gray-400"></i> -->
+                <div class="relative">
+                    <i class="fas fa-list absolute left-3 top-3 text-gray-400"></i>
+                    <select name="category" class="border border-gray-300 rounded px-10 py-2 w-full">
+                        <option value="">-- Select Category --</option>
+                        <?php foreach ($categories as $cat): ?>
+                            <option value="<?= htmlspecialchars($cat) ?>" 
+                                <?= isset($expense['category']) && $expense['category'] === $cat ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($cat) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
             </div>
             
             <div class="relative">

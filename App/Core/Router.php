@@ -63,6 +63,17 @@ class Router {
                     $expense->update();
                 }
                 break;
+            case 'expense-category-report':
+                $expense->categoryReport();
+                break;
+            case 'export-csv':
+                $expense->exportCSV();
+                break;
+
+            case 'export-pdf':
+                $expense->exportPDF();
+                break;
+
             case 'categories':
                 $cat->index();
                 break;
