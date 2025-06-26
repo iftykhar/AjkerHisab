@@ -13,19 +13,19 @@ require_once '../App/Core/Session.php';
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 </head>
+<body class="bg-gray-100 min-h-screen p-2 sm:p-8">
 <body class="bg-gray-100 min-h-screen p-8">
     <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6">
-        <div class="flex justify-between items-center mb-6">
-            <div>
-            <h2 class="text-2xl font-bold text-gray-800 flex items-center">
-                <i class="fas fa-receipt mr-2"></i> <?php echo htmlspecialchars(Session::get('user')); ?> Expenses
-            </h2>
+        <div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+            <div class="w-full sm:w-auto text-center sm:text-left"></div>
+                <h2 class="text-2xl font-bold text-gray-800 flex items-center justify-center sm:justify-start">
+                    <i class="fas fa-receipt mr-2"></i> <?php echo htmlspecialchars(Session::get('user')); ?> Expenses
+                </h2>
             </div>
-            <div>
-                <h1 class="text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-green-400 text-transparent bg-clip-text text-center">
-                    AjkerHisab <span class="text-6xl">৳</span>
+            <div class="w-full sm:w-auto text-center">
+                <h1 class="text-4xl sm:text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-green-400 text-transparent bg-clip-text">
+                    AjkerHisab <span class="text-6xl sm:text-6xl md:text-7xl">৳</span>
                 </h1>
             </div>
         </div>

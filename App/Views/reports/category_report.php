@@ -14,7 +14,10 @@
             <canvas id="categoryChart" height="150"></canvas>
         </div>
 
-        <a href="index.php?route=dashboard" class="text-blue-500 hover:underline">&larr; Back to Dashboard</a>
+        <a href="index.php?route=dashboard" class="mt-6 inline-flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition duration-150">
+            <i class="fas fa-arrow-left mr-2"></i>
+            Back to Dashboard
+        </a>
     </div>
     <!-- <form method="GET" action="index.php" class="mb-6"></form> -->
      <canvas id="categoryChart" class="my-8"></canvas>

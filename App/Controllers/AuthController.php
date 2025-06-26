@@ -62,7 +62,7 @@ class AuthController {
 
     public function profile() {
         $userEmail = \App\Core\Session::get('user');
-        $users = json_decode(file_get_contents(__DIR__ . '/../Storage/users.json'), true);
+        $users = json_decode(file_get_contents(__DIR__ . '/../../Storage/users.json'), true);
 
         foreach ($users as $u) {
             if ($u['email'] === $userEmail) {
@@ -89,16 +89,30 @@ class AuthController {
                     $user['password'] = password_hash($password, PASSWORD_DEFAULT);
                 }
 
-                // Optional image upload
+                
                 if (!empty($_FILES['profile_image']['name'])) {
-                    $targetDir = __DIR__ . '/../../Storage/uploads/';
-                    if (!is_dir($targetDir)) mkdir($targetDir, 0755, true);
+                    $allowedTypes = ['image/jpeg', 'image/png'];
+                    $maxSize = 1 * 1024 * 1024; // 1MB
 
-                    $filename = uniqid() . '_' . basename($_FILES['profile_image']['name']);
-                    $targetFile = $targetDir . $filename;
+                    $fileType = $_FILES['profile_image']['type'];
+                    $fileSize = $_FILES['profile_image']['size'];
+                    $tmpName = $_FILES['profile_image']['tmp_name'];
 
-                    move_uploaded_file($_FILES['profile_image']['tmp_name'], $targetFile);
-                    $user['profile_image'] = 'Storage/uploads/' . $filename;
+                    if (in_array($fileType, $allowedTypes) && $fileSize <= $maxSize) {
+                        $targetDir = __DIR__ . '/../Storage/uploads/';
+                        if (!is_dir($targetDir)) mkdir($targetDir, 0755, true);
+
+                        $filename = uniqid() . '_' . basename($_FILES['profile_image']['name']);
+                        $targetFile = $targetDir . $filename;
+
+                        if (move_uploaded_file($tmpName, $targetFile)) {
+                            $user['profile_image'] = 'Storage/uploads/' . $filename;
+                        }
+                    } else {
+                        
+                        header('Location: index.php?route=profile&error=invalid_image');
+                        exit;
+                    }
                 }
 
                 break;
@@ -108,6 +122,7 @@ class AuthController {
         file_put_contents(__DIR__ . '/../../Storage/users.json', json_encode($users, JSON_PRETTY_PRINT));
         header('Location: index.php?route=profile&msg=updated');
     }
+
 
 
 }

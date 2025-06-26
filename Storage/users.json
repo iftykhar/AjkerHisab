@@ -12,7 +12,8 @@
     "admin@mail.com": {
         "name": "admin",
         "email": "admin@mail.com",
-        "password": "$2y$10$oRFy7EmCybg4gsacNd2GN.qVy4ore3Db3kw1sp25FP.5QJDy1dJbW"
+        "password": "$2y$10$oRFy7EmCybg4gsacNd2GN.qVy4ore3Db3kw1sp25FP.5QJDy1dJbW",
+        "profile_image": "Storage\/uploads\/685d755051837_talenarrator - Copy.png"
     },
     "jadu@mail.com": {
         "name": "jadu",
