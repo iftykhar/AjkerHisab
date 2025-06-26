@@ -135,7 +135,7 @@ class ExpenseController
 
     public function exportCSV() {
         $user = Session::get('user');
-        $expenses = json_decode(file_get_contents(__DIR__ . '/../Storage/expenses.json'), true);
+        $expenses = json_decode(file_get_contents(__DIR__ . '/../../Storage/expenses.json'), true);
         $filtered = array_filter($expenses, fn($e) => $e['user'] === $user);
 
         header('Content-Type: text/csv');
@@ -154,7 +154,7 @@ class ExpenseController
 
     public function exportPDF() {
         $user = Session::get('user');
-        $expenses = json_decode(file_get_contents(__DIR__ . '/../Storage/expenses.json'), true);
+        $expenses = json_decode(file_get_contents(__DIR__ . '/../../Storage/expenses.json'), true);
         $filtered = array_filter($expenses, fn($e) => $e['user'] === $user);
 
         $html = "<h2 style='text-align:center;'>Expense Report</h2><table border='1' width='100%' style='border-collapse:collapse;'><tr><th>Date</th><th>Title</th><th>Category</th><th>Amount</th></tr>";
