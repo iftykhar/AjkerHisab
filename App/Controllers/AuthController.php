@@ -59,4 +59,55 @@ class AuthController {
         session_destroy();
         header('Location: index.php?route=login');
     }
+
+    public function profile() {
+        $userEmail = \App\Core\Session::get('user');
+        $users = json_decode(file_get_contents(__DIR__ . '/../Storage/users.json'), true);
+
+        foreach ($users as $u) {
+            if ($u['email'] === $userEmail) {
+                $user = $u;
+                break;
+            }
+        }
+
+        require_once __DIR__ . '/../Views/auth/profile.php';
+    }
+
+    public function updateProfile() {
+        $name = $_POST['name'] ?? '';
+        $password = $_POST['password'] ?? '';
+        $userEmail = \App\Core\Session::get('user');
+
+        $users = json_decode(file_get_contents(__DIR__ . '/../../Storage/users.json'), true);
+
+        foreach ($users as &$user) {
+            if ($user['email'] === $userEmail) {
+                $user['name'] = $name ?: $user['name'];
+
+                if (!empty($password)) {
+                    $user['password'] = password_hash($password, PASSWORD_DEFAULT);
+                }
+
+                // Optional image upload
+                if (!empty($_FILES['profile_image']['name'])) {
+                    $targetDir = __DIR__ . '/../../Storage/uploads/';
+                    if (!is_dir($targetDir)) mkdir($targetDir, 0755, true);
+
+                    $filename = uniqid() . '_' . basename($_FILES['profile_image']['name']);
+                    $targetFile = $targetDir . $filename;
+
+                    move_uploaded_file($_FILES['profile_image']['tmp_name'], $targetFile);
+                    $user['profile_image'] = 'Storage/uploads/' . $filename;
+                }
+
+                break;
+            }
+        }
+
+        file_put_contents(__DIR__ . '/../../Storage/users.json', json_encode($users, JSON_PRETTY_PRINT));
+        header('Location: index.php?route=profile&msg=updated');
+    }
+
+
 }

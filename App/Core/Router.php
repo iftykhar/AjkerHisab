@@ -57,7 +57,6 @@ class Router {
             case 'expense-edit':
                 $expense->editForm();
                 break;
-
             case 'expense-update':
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $expense->update();
@@ -69,16 +68,23 @@ class Router {
             case 'export-csv':
                 $expense->exportCSV();
                 break;
-
             case 'export-pdf':
                 $expense->exportPDF();
                 break;
-
             case 'categories':
                 $cat->index();
                 break;
             case 'category-store':
                 $cat->store();
+                break;
+            case 'profile':
+                $auth->profile();
+                break;
+
+            case 'profile-update':
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $auth->updateProfile();
+                }
                 break;
 
             default:
