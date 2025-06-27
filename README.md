@@ -81,6 +81,8 @@ App/Storage/users.json
 S M Iftykhar Alam
 
 🌐 [Portfolio](https://iftykhar-portfolio.vercel.app)
-🔗 [GitHub] (https://github.com/iftykhar)
-💼 [LinkedIn] (https://www.linkedin.com/in/iftykhar-alam/)
+🔗 [GitHub](https://github.com/iftykhar)
+💼 [LinkedIn](https://www.linkedin.com/in/iftykhar-alam/)
+<!-- 🔗 [GitHub] (https://github.com/iftykhar)
+💼 [LinkedIn] (https://www.linkedin.com/in/iftykhar-alam/) -->
 
