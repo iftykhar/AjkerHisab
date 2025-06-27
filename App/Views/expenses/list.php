@@ -28,7 +28,7 @@ require_once '../App/Core/Session.php';
                     AjkerHisab <span class="text-6xl sm:text-6xl md:text-7xl">৳</span>
                 </h1>
             </div>
-        </div>
+        <!-- </div> -->
         
         
         <div class="mb-4 flex justify-end space-x-2">
@@ -72,8 +72,8 @@ require_once '../App/Core/Session.php';
         <div class="space-y-3">
             <?php foreach ($expenses as $index => $exp): ?>
             <div class="expense-item mb-4">
+                <!-- List View (Mobile First) -->
                 <div class="listView">
-                <!-- List View -->
                 <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100">
                     <div class="flex items-center">
                     <i class="fas fa-calendar-alt text-gray-500 mr-3"></i>
@@ -102,7 +102,7 @@ require_once '../App/Core/Session.php';
                 </div>
                 </div>
                 <div class="gridView hidden grid grid-cols-2 gap-4">
-                <!-- Grid View -->
+                <!-- Grid View (Mobile First) -->
                 <div class="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 items-center ">
                     <div class="space-y-2">
                         <div><i class="fas fa-calendar-alt mr-2"></i><?= htmlspecialchars($exp['date']) ?></div>
