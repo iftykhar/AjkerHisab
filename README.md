@@ -78,7 +78,7 @@ App/Storage/users.json
 
 ## 👨‍💻 Developed By
 
-S M Iftykhar Alam
+### S M Iftykhar Alam
 
 🌐 [Portfolio](https://iftykhar-portfolio.vercel.app)
 🔗 [GitHub](https://github.com/iftykhar)
