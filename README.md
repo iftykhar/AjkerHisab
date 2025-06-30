@@ -39,11 +39,6 @@ AjkerHisab is a lightweight, JSON-based personal expense tracker built with core
 - ✅ **Category Management**
   - Add new categories
   - View reports by category (Chart.js)
-- ✅ **Search and Filters**
-  - Filter expenses by month and category
-- ✅ **Profile Page**
-  - View and update name/password
-  - Upload profile picture
 - ✅ **Export Feature**
   - Export expenses as CSV or PDF
 - ✅ **Responsive UI** using TailwindCSS
@@ -51,50 +46,6 @@ AjkerHisab is a lightweight, JSON-based personal expense tracker built with core
 
 ---
 
-## 🗂️ Folder Structure
-
-AjkerHisab/
-├── App/
-│ ├── Controllers/
-│ │ ├── AuthController.php
-│ │ ├── CategoryController.php
-│ │ ├── DashboardController.php
-│ │ └── ExpenseController.php
-│ ├── Core/
-│ │ ├── Router.php
-│ │ └── Session.php
-│ ├── Models/
-│ │ ├── Category.php
-│ │ ├── Expense.php
-│ │ └── User.php
-│ └── Views/
-│ ├── auth/
-│ ├── expenses/
-│ ├── reports/
-│ ├── Partials/
-│ ├── dashboard.php
-│ ├── error.php
-│ ├── login.php
-│ ├── register.php
-├── Public/
-│ ├── .htaccess
-│ ├── dashboard.js
-│ ├── index.php
-│ └── logout.php
-├── Storage/
-│ ├── uploads/
-│ │ └── profile_image.png
-│ ├── categories.json
-│ ├── expenses.json
-│ └── users.json
-├── vendor/
-├── .dockerignore
-├── Dockerfile
-├── composer.json
-├── composer.lock
-└── README.md
-
----
 
 ## 🚀 Getting Started (Local)
 
