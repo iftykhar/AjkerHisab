@@ -1,18 +1,21 @@
-# Use PHP with Apache
+# 1. Use PHP with Apache
 FROM php:8.2-apache
 
-# Enable Apache mod_rewrite
+# 2. Enable pretty URL rewrite
 RUN a2enmod rewrite
 
-# Set working directory inside container
+# 3. Set working dir
 WORKDIR /var/www/html
 
-# Copy all files from your repo to the container's /var/www/html
-COPY . /var/www/html
+# 4. Copy entire project
+COPY . /var/www/html/
 
-# Ensure Apache uses the public folder as the web root
+# 5. Clear default webroot and set public folder as root
 RUN rm -rf /var/www/html/*
+# Adjust folder name below if not 'Public/'
 COPY Public/ /var/www/html/
 
-# Optional: expose port (Render already knows to use port 80)
+# 6. Make Storage writable
+RUN chmod -R 777 /var/www/html/Storage
+
 EXPOSE 80
