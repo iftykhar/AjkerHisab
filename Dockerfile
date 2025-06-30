@@ -1,21 +1,19 @@
-# 1. Use PHP with Apache
+# Use official PHP + Apache base image
 FROM php:8.2-apache
 
-# 2. Enable pretty URL rewrite
+# Enable mod_rewrite for Laravel-style routing
 RUN a2enmod rewrite
 
-# 3. Set working dir
+# Set working directory
 WORKDIR /var/www/html
 
-# 4. Copy entire project
-COPY . /var/www/html/
+# Copy all files into container
+COPY . .
 
-# 5. Clear default webroot and set public folder as root
-RUN rm -rf /var/www/html/*
-# Adjust folder name below if not 'Public/'
-COPY Public/ /var/www/html/
+# Install required PHP extensions (adjust as needed)
+RUN docker-php-ext-install pdo pdo_mysql
 
-# 6. Make Storage writable
-RUN chmod -R 777 /var/www/html/Storage
+# Make Storage writable
+RUN chmod -R 777 /var/www/html/Storage || echo "No Storage dir found"
 
 EXPOSE 80
