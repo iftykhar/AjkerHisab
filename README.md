@@ -83,6 +83,4 @@ App/Storage/users.json
 🌐 [Portfolio](https://iftykhar-portfolio.vercel.app)
 🔗 [GitHub](https://github.com/iftykhar)
 💼 [LinkedIn](https://www.linkedin.com/in/iftykhar-alam/)
-<!-- 🔗 [GitHub] (https://github.com/iftykhar)
-💼 [LinkedIn] (https://www.linkedin.com/in/iftykhar-alam/) -->
 
